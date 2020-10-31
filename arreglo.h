@@ -29,6 +29,11 @@ class arreglo_dinamico{
     T operator[](size_t p){
         return arreglo[p];
     }
+
+    friend arreglo_dinamico<T>& operator<<(arreglo_dinamico<T> &a, const T& s){
+        a.insertar_final(s);
+        return a;
+    }
 };
 
 template <class T>

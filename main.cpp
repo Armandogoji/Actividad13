@@ -1,9 +1,20 @@
 #include <iostream>
 #include "arreglo.h"
+#include "computadora.h"
 using namespace std;
 
 int main(){
-    arreglo_dinamico<string> arreglo;
+    arreglo_dinamico<Computadora> computadora;
+    Computadora PC1(1024, "Windows", "AMD", "angel");
+    Computadora PC2(2048, "Linux", "Intel", "Ruben");
+    Computadora PC3(4196, "MAC", "Intel", "Diego");
+
+    computadora << PC1 << PC2 << PC3;
+    Computadora PC4(2048, "Linux", "Intel", "Ruben");
+    Computadora *ptr = computadora.buscar(PC4);
+    
+    cout << *ptr << endl;
+    /*arreglo_dinamico<string> arreglo;
 
     for(size_t i = 0; i < 1; i++){
        arreglo.insertar_final("tres");
@@ -28,5 +39,5 @@ int main(){
     for (size_t i = 0; i < arreglo.size(); i++){
         cout << arreglo[i] << " ";
     }
-    cout <<endl;
+    cout <<endl;*/
 }
