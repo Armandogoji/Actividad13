@@ -5,14 +5,16 @@ using namespace std;
 
 int main(){
     arreglo_dinamico<Computadora> computadora;
-    Computadora PC1(1024, "Windows", "AMD", "angel");
-    Computadora PC2(2048, "Linux", "Intel", "Ruben");
-    Computadora PC3(4196, "MAC", "Intel", "Diego");
+    Computadora PC1(1024, "Windows", "AMD", "Angel");
+    Computadora PC2(4196, "Linux", "Intel", "Ruben");
+    Computadora PC3(4196, "Windows", "Intel", "Alberto");
+    Computadora PC4(4196, "Linux", "AMD", "Paula");
+    Computadora PC5(8492, "MAC", "Intel", "Armando");
 
-    computadora << PC1 << PC2 << PC3 << PC2 << PC2;
-    Computadora PC4(2048, "Linux", "Intel", "Ruben");
+    computadora << PC1 << PC2 << PC3 << PC4 << PC5;
+    Computadora PC6(4196, "Linux", "Intel", "Ruben");
     
-    arreglo_dinamico<Computadora*> ptrs = computadora.buscar_todos(PC4);
+    arreglo_dinamico<Computadora*> ptrs = computadora.buscar_todos(PC6);
     if(ptrs.size() > 0){
         for (size_t i = 0; i < ptrs.size(); i++){
             Computadora *c = ptrs[i];
@@ -23,7 +25,7 @@ int main(){
         cout <<"SIN COINCIDENCIAS" << endl;
     }
     
-    /*Computadora *ptr = computadora.buscar(PC4);
+    /*Computadora *ptr = computadora.buscar(PC5);
     
     if(ptr != nullptr){
     cout << *ptr << endl;
