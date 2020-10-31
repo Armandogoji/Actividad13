@@ -9,16 +9,29 @@ int main(){
     Computadora PC2(2048, "Linux", "Intel", "Ruben");
     Computadora PC3(4196, "MAC", "Intel", "Diego");
 
-    computadora << PC1 << PC2 << PC3;
-    Computadora PC4(20481, "Linux", "Intel", "Ruben");
-    Computadora *ptr = computadora.buscar(PC4);
+    computadora << PC1 << PC2 << PC3 << PC2 << PC2;
+    Computadora PC4(2048, "Linux", "Intel", "Ruben");
+    
+    arreglo_dinamico<Computadora*> ptrs = computadora.buscar_todos(PC4);
+    if(ptrs.size() > 0){
+        for (size_t i = 0; i < ptrs.size(); i++){
+            Computadora *c = ptrs[i];
+            cout << *c << endl;
+        }
+    }
+    else{
+        cout <<"SIN COINCIDENCIAS" << endl;
+    }
+    
+    /*Computadora *ptr = computadora.buscar(PC4);
     
     if(ptr != nullptr){
     cout << *ptr << endl;
     }
     else{
         cout << "NO EXISTE" << endl;
-    }
+    }*/
+
     /*arreglo_dinamico<string> arreglo;
 
     for(size_t i = 0; i < 1; i++){

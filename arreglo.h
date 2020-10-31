@@ -24,6 +24,7 @@ class arreglo_dinamico{
     void eliminar(size_t p);
 
     T* buscar(const T& s);
+    arreglo_dinamico<T*> buscar_todos(const T& s);
 
     size_t size();
     T operator[](size_t p){
@@ -125,6 +126,18 @@ T* arreglo_dinamico<T>::buscar(const T& s){
         }
     }
     return nullptr;
+}
+
+template <class T>
+arreglo_dinamico<T*> arreglo_dinamico<T>::buscar_todos(const T& s){
+    arreglo_dinamico<T*> ptrs;
+    
+    for (size_t i = 0; i < cont; i++){
+        if (s == arreglo[i]){
+            ptrs.insertar_final(&arreglo[i]);
+        }
+    }
+    return ptrs;
 }
 
 template <class T>
